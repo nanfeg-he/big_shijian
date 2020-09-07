@@ -56,8 +56,9 @@
             <td onselectstart="return false" οnselect="document.selection.empty()">{{$value.name}}</td>
             <td onselectstart="return false" οnselect="document.selection.empty()">{{$value.alias}}</td>
             <td onselectstart="return false" οnselect="document.selection.empty()">
-                <button type="button" class="layui-btn layui-btn-xs btn-edit"">编辑</button>
-                <button type=" button" class="layui-btn layui-btn-danger layui-btn-xs">删除</button>
+                <button type="button" class="layui-btn layui-btn-xs btn-edit" data-id="{{$value.Id}}">编辑</button>
+                <button type=" button" class="layui-btn layui-btn-danger layui-btn-xs btn-delete"
+                    data-id="{{$value.Id}}">删除</button>
             </td>
         </tr>
         {{/each}}
@@ -121,6 +122,7 @@
 <script src="/assets/lib/layui/layui.all.js"></script>
 <script src="/assets/lib/jquery.js"></script>
 <script src="/assets/js/baseAPI.js"></script>
+<!-- 自己 -->
 <script src="/assets/js/article/art_cate.js"></script>
 
 </html>
