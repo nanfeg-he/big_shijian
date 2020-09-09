@@ -138,6 +138,8 @@ function renderPage(total) {
 
 // 删除
 $('tbody').on('click', '.btn-delete', function () {
+    // 获取删除按钮的个数
+    var len = $('.btn-delete').length
     // 获取到文章的 id
     var id = $(this).attr('data-id')
     // 询问用户是否要删除数据
@@ -153,6 +155,11 @@ $('tbody').on('click', '.btn-delete', function () {
                     return layer.msg('删除文章失败！')
                 }
                 layer.msg('删除文章成功！')
+                if (len === 1) {
+                    // 如果 len 的值等于1，证明删除完毕之后，页面上就没有任何数据了
+                    // 页码值最小必须是 1
+                    q.pagenum = q.pagenum === 1 ? 1 : q.pagenum - 1
+                }
                 initTable()
             }
         })
